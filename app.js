@@ -5,8 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 const mongoose = require("mongoose");
-var url =
-  "mongodb+srv://vamshi:rGBgBprJbzNiIKBv@development-i76n3.mongodb.net/test?retryWrites=true&w=majority";
+/*var url =
+  "mongodb+srv://vamshi:rGBgBprJbzNiIKBv@development-i76n3.mongodb.net/test?retryWrites=true&w=majority";*/
+var url = "mongodb://localhost:27017/OnlineShopping";
 mongoose.Promise = global.Promise;
 // Connecting to the database
 mongoose
@@ -22,6 +23,7 @@ mongoose
     process.exit();
   });
 
+var indexRouter = require("./routes/index.route");
 var usersRouter = require("./routes/user.route");
 var app = express();
 
@@ -35,6 +37,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
