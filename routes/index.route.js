@@ -32,7 +32,11 @@ router.post("/", function(req, res) {
     });
 
     httpRes.on("end", () => {
-      res.render("dashboard", JSON.parse(buff));
+      if (httpRes.statusCode === 200) {
+        console.log(httpRes.headers["authorization"]);
+        res.cookie("authorization", httpRes.headers["authorization"]);
+        res.render("dashboard", JSON.parse(buff));
+      } else res.render("index", JSON.parse(buff));
     });
   });
 
