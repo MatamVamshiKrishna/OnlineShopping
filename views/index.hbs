@@ -1,11 +1,23 @@
-<form action="/" method="POST">
-    Email : <input type="text" name="email">
-    Password : <input type="text" name="password">
-    <p style="color:red">{{message}}</p>
+<div>
+    <button onclick="signIn()">Sign In</button>
+    <button>Sign Up</button>
+</div>
+<div>
+    <h1>Products</h1>
+    {{#each products}}
     <div>
-        <input type="submit" value="Login">
+        <p>Name:{{name}}</p>
+        <p>Price:{{price}}</p>
+        <button>Buy</button>
     </div>
-    <div>
-        <button>Signup</button>
-    </div>
-</form>
+    {{/each}}
+</div>
+<script>
+    function signIn() {
+        window.location = "/signin"
+    }
+
+    function signUp() {
+        window.location = "/signup"
+    }
+</script>
