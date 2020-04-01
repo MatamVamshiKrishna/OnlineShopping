@@ -28,6 +28,7 @@ console.log("started main code")
 var indexRouter = require("./routes/index.route")
 var usersRouter = require("./routes/user.route")
 var productsRouter = require("./routes/product.route")
+var sellersRouter = require("./routes/seller.route")
 var app = express()
 
 // view engine setup
@@ -43,6 +44,7 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use("/", indexRouter)
 app.use("/users", usersRouter)
 app.use("/products", productsRouter)
+app.use("/sellers", sellersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
