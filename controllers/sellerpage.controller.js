@@ -91,12 +91,9 @@ exports.homepage = function (req, res) {
 }
 
 exports.signinpage = function (req, res) {
-    res.render("signin", { isUser: true })
+    res.render("signin", { isUser: false })
 }
 
 exports.signuppage = function (req, res) {
-    res.render("signup")
+    res.render("signup", {})
 }
-
-
-

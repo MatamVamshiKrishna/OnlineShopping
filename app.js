@@ -26,6 +26,7 @@ mongoose
 console.log("started main code")
 
 var indexRouter = require("./routes/index.route")
+var sellerPageRouter = require("./routes/sellerpage.route")
 var usersRouter = require("./routes/user.route")
 var productsRouter = require("./routes/product.route")
 var sellersRouter = require("./routes/seller.route")
@@ -41,10 +42,13 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, "public")))
 
+// page routers
 app.use("/", indexRouter)
-app.use("/users", usersRouter)
-app.use("/products", productsRouter)
-app.use("/sellers", sellersRouter)
+app.use("/seller", sellerPageRouter)
+// api routers
+app.use("api/users", usersRouter)
+app.use("api/products", productsRouter)
+app.use("api/sellers", sellersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
