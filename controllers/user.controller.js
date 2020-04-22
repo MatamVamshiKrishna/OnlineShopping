@@ -7,6 +7,8 @@ const PasswordHash = require("password-hash")
 const nodemailer = require("nodemailer")
 const credentials = require("../credentials.json")
 
+
+
 const bcrypt = require('bcrypt')
 const saltRounds = 10
 
@@ -160,4 +162,13 @@ exports.createOrder = async (req, res) => {
 
 exports.retrieveOrders = async (req, res) => {
   // TODO
+}
+
+exports.uploadImage = (req, res) => {
+  console.log(req.file)
+  if (!req.file) {
+    res.status(500)
+    return next(err)
+  }
+  res.json({ fileUrl: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename })
 }
