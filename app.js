@@ -46,9 +46,9 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use("/", indexRouter)
 app.use("/seller", sellerPageRouter)
 // api routers
-app.use("api/users", usersRouter)
-app.use("api/products", productsRouter)
-app.use("api/sellers", sellersRouter)
+app.use("/api/users", usersRouter)
+app.use("/api/products", productsRouter)
+app.use("/api/sellers", sellersRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -12,7 +12,7 @@ exports.homepage = function (req, res) {
             const options = {
                 hostname: req.hostname,
                 port: 3000,
-                path: "/users",
+                path: "/api/users",
                 method: "GET",
                 headers: { authorization: req.cookies.authorization }
             }
@@ -51,7 +51,7 @@ exports.homepage = function (req, res) {
         const options = {
             hostname: req.hostname,
             port: 3000,
-            path: "/products",
+            path: "/api/products",
             method: "GET"
         }
 
